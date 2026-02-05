@@ -16,7 +16,7 @@ export function ThemeToggle() {
     if (!mounted) {
         return (
             <button className="p-2.5 rounded-lg bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
-                <Sun size={18} className="text-gray-400" />
+                <Sun size={18} className="text-gray-400 dark:text-gray-600" />
             </button>
         );
     }
@@ -28,9 +28,9 @@ export function ThemeToggle() {
             aria-label="Toggle theme"
         >
             {theme === "dark" ? (
-                <Sun size={18} className="text-amber-500" />
+                <Sun size={18} className="text-gray-100 dark:text-gray-100" />
             ) : (
-                <Moon size={18} className="text-gray-700" />
+                <Moon size={18} className="text-gray-700 dark:text-gray-700" />
             )}
         </button>
     );
