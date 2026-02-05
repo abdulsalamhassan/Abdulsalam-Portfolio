@@ -43,7 +43,7 @@ export default function Home() {
         {/* Text Content */}
         <div className="flex flex-col items-center text-center sm:items-start sm:text-left space-y-5 flex-1">
           <div>
-            <h1 className="text-2xl font-bold text-gray-900 tracking-tight md:text-4xl whitespace-nowrap">
+            <h1 className="text-2xl font-bold text-gray-900 tracking-tight md:text-4xl dark:text-white whitespace-nowrap">
               Abdulsalam Hassan Shiikhow
             </h1>
             <p className="text-sm md:text-md text-gray-600 font-medium mt-2 whitespace-nowrap">
@@ -107,42 +107,42 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="p-5 bg-white rounded-xl border border-gray-200 hover:border-purple-200 transition-all">
-            <div className="flex items-center gap-2 text-gray-900 font-semibold text-sm uppercase tracking-wide mb-4">
-              <Layout size={18} className="text-purple-600" />
+          <div className="p-5 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 hover:border-blue-200 dark:hover:border-blue-500 transition-all">
+            <div className="flex items-center gap-2 text-gray-900 dark:text-gray-100 font-semibold text-sm uppercase tracking-wide mb-4">
+              <Layout size={18} className="text-purple-600 dark:text-purple-400" />
               <h3>Frontend Development</h3>
             </div>
             <div className="flex flex-wrap gap-2">
               {["TypeScript", "React", "Next.js", "Tailwind CSS", "React Query",].map((s) => (
-                <Badge key={s} variant="secondary" className="font-normal bg-purple-50 text-purple-800 hover:bg-purple-100 border border-purple-100">
+                <Badge key={s} variant="secondary" className="font-normal dark:bg-purple-900/30 dark:hover:bg-purple-900/50 dark:text-purple-300 bg-purple-50 text-purple-800 hover:bg-purple-100 dark:hover:text-purple-200 border border-purple-100 dark:border-purple-800">
                   {s}
                 </Badge>
               ))}
             </div>
           </div>
 
-          <div className="p-5 bg-white rounded-xl border border-gray-200 hover:border-amber-200 transition-all">
-            <div className="flex items-center gap-2 text-gray-900 font-semibold text-sm uppercase tracking-wide mb-4">
-              <Brain size={18} className="text-amber-600" />
+          <div className="p-5 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 hover:border-blue-200 dark:hover:border-blue-500 transition-all">
+            <div className="flex items-center gap-2 text-gray-900 dark:text-gray-100 font-semibold text-sm uppercase tracking-wide mb-4">
+              <Brain size={18} className="text-amber-600 dark:text-amber-400" />
               <h3>AI / Data</h3>
             </div>
             <div className="flex flex-wrap gap-2">
               {["Python", "FastAPI", "LLMs", "Embeddings"].map((s) => (
-                <Badge key={s} variant="secondary" className="font-normal bg-amber-50 text-amber-800 hover:bg-amber-100 border border-amber-100">
+                <Badge key={s} variant="secondary" className="font-normal dark:bg-amber-900/30 dark:hover:bg-amber-900/50 dark:text-amber-300 bg-amber-50 text-amber-800 hover:bg-amber-100 dark:hover:text-amber-200 border border-amber-100 dark:border-amber-400">
                   {s}
                 </Badge>
               ))}
             </div>
           </div>
 
-          <div className="p-5 bg-white rounded-xl border border-gray-200 hover:border-gray-300 transition-all">
-            <div className="flex items-center gap-2 text-gray-900 font-semibold text-sm uppercase tracking-wide mb-4">
-              <Wrench size={18} className="text-gray-600" />
+          <div className="p-5 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 hover:border-blue-200 dark:hover:border-blue-500 transition-all">
+            <div className="flex items-center gap-2 text-gray-900 dark:text-gray-100 font-semibold text-sm uppercase tracking-wide mb-4">
+              <Wrench size={18} className="text-gray-600 dark:text-gray-400" />
               <h3>Tools & DevOps</h3>
             </div>
             <div className="flex flex-wrap gap-2">
               {["Git & GitHub", "Docker", "VS Code", "Postman"].map((s) => (
-                <Badge key={s} variant="secondary" className="font-normal bg-gray-100 text-gray-800 hover:bg-gray-200 border border-gray-200">
+                <Badge key={s} variant="secondary" className="font-normal dark:bg-gray-900/30 dark:hover:bg-gray-900/50 dark:text-gray-300 bg-gray-100 text-gray-800 hover:bg-gray-200 dark:hover:text-gray-200 border border-gray-100 dark:border-gray-100">
                   {s}
                 </Badge>
               ))}
@@ -202,42 +202,43 @@ export default function Home() {
               <GraduationCap size={24} className="text-gray-700" />
             </div>
             <div>
-              <h3 className="font-bold text-gray-900">BSc Computer Science</h3>
-              <p className="text-gray-700 font-medium">SIMAD University</p>
-              <p className="text-sm text-gray-500 mt-1">Expected Graduation: 2028</p>
+              <h3 className="font-bold text-gray-900 dark:text-gray-100">BSc Computer Science</h3>
+              <p className="text-gray-700 font-medium dark:text-gray-100">SIMAD University</p>
+              <p className="text-sm text-gray-500 mt-1 dark:text-gray-100">Expected Graduation: 2028</p>
             </div>
           </div>
 
           <div>
-            <h3 className="text-sm font-semibold text-gray-900 mb-4">Selected Online Coursework</h3>
+            <h3 className="text-sm font-semibold text-gray-900 mb-4 dark:text-gray-100">Selected Online Coursework</h3>
             <div className="grid grid-cols-1 gap-3">
-              <div className="flex items-start gap-3 p-3 bg-gradient-to-r from-blue-50 to-white rounded-lg border border-blue-100 hover:border-blue-200 transition-all">
+
+              <div className="flex items-start gap-3 p-3 bg-blue-50 dark:bg-gray-800 rounded-lg border border-blue-100 dark:bg-gray-800 hover:border-blue-200 transition-all">
                 <div className="p-2 bg-blue-100 rounded-md">
                   <BookOpen size={18} className="text-blue-700" />
                 </div>
                 <div className="flex-1">
-                  <p className="font-medium text-gray-900 text-sm">Backend Development with NestJS</p>
-                  <p className="text-xs text-gray-500 mt-0.5">Udemy</p>
+                  <p className="font-medium text-gray-900 text-sm dark:text-gray-100">Backend Development with NestJS</p>
+                  <p className="text-xs text-gray-500 mt-0.5 dark:text-gray-100">Udemy</p>
                 </div>
               </div>
 
-              <div className="flex items-start gap-3 p-3 bg-gradient-to-r from-blue-50 to-white rounded-lg border border-blue-100 hover:border-blue-200 transition-all">
+              <div className="flex items-start gap-3 p-3 bg-blue-50 dark:bg-gray-800 rounded-lg border border-blue-100 dark:bg-gray-800 hover:border-blue-200 transition-all">
                 <div className="p-2 bg-blue-100 rounded-md">
                   <Database size={18} className="text-blue-700" />
                 </div>
                 <div className="flex-1">
-                  <p className="font-medium text-gray-900 text-sm">SQL & PostgreSQL Fundamentals</p>
-                  <p className="text-xs text-gray-500 mt-0.5">Coursera</p>
+                  <p className="font-medium text-gray-900 text-sm dark:text-gray-100">SQL & PostgreSQL Fundamentals</p>
+                  <p className="text-xs text-gray-500 mt-0.5 dark:text-gray-100">Coursera</p>
                 </div>
               </div>
 
-              <div className="flex items-start gap-3 p-3 bg-gradient-to-r from-blue-50 to-white rounded-lg border border-blue-100 hover:border-blue-200 transition-all">
+              <div className="flex items-start gap-3 p-3 bg-blue-50 dark:bg-gray-800 rounded-lg border border-blue-100 dark:bg-gray-800 hover:border-blue-200 transition-all">
                 <div className="p-2 bg-blue-100 rounded-md">
                   <Sparkles size={18} className="text-blue-700" />
                 </div>
                 <div className="flex-1">
-                  <p className="font-medium text-gray-900 text-sm">Generative AI for Software Development</p>
-                  <p className="text-xs text-gray-500 mt-0.5">Coursera</p>
+                  <p className="font-medium text-gray-900 text-sm dark:text-gray-100">Generative AI for Software Development</p>
+                  <p className="text-xs text-gray-500 mt-0.5 dark:text-gray-100">Coursera</p>
                 </div>
               </div>
             </div>
@@ -249,8 +250,8 @@ export default function Home() {
 
       {/* Contact */}
       <Section title="Get in Touch">
-        <div className="p-6 bg-gray-50 rounded-xl border border-gray-100 text-center">
-          <p className="text-gray-700 mb-4">
+        <div className="p-6 bg-gray-50 dark:bg-gray-800 rounded-xl border border-gray-100 dark:border-gray-700 text-center">
+          <p className="text-gray-700 mb-4 dark:text-gray-100">
             I am always open to discussing backend engineering, AI systems, or new opportunities.
           </p>
           <a
@@ -262,6 +263,7 @@ export default function Home() {
           </a>
         </div>
       </Section>
+      <Separator className="opacity-40 bg-black dark:bg-white" />
 
       <footer className="text-xs text-center text-gray-400 mt-20 pb-8">
         <p>&copy; {new Date().getFullYear()} Abdulsalam Hassan. FullStack Engineer.</p>
