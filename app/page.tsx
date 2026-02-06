@@ -252,7 +252,7 @@ export default function Home() {
       <Section title="Get in Touch">
         <div className="p-6 bg-gray-50 dark:bg-gray-800 rounded-xl border border-gray-100 dark:border-gray-700 text-center">
           <p className="text-gray-700 mb-4 dark:text-gray-100">
-            I am always open to discussing backend engineering, AI systems, or new opportunities.
+            I am always open to discussing FullStack systems, AI systems, or new opportunities.
           </p>
           <a
             href="mailto:abdulsalam.shiikhow@gmail.com?subject=Hello%20Abdulsalam!&body=Hi%20Abdulsalam%2C%0A%0AI%20came%20across%20your%20portfolio%20and%20wanted%20to%20reach%20out.%0A%0A"
