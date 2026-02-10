@@ -32,30 +32,30 @@ export default function Home() {
       <header className="flex flex-col sm:flex-row items-center gap-8 sm:gap-12">
         {/* Profile Image */}
         <div className="shrink-0">
-          <div className="relative w-40 h-40 sm:w-48 sm:h-48 rounded-2xl overflow-hidden border-2 border-gray-200 dark:border-gray-700 shadow-lg grayscale hover:grayscale-0 transition-all duration-300">
+          <div className="relative w-32 h-32 sm:w-48 sm:h-48 rounded-2xl overflow-hidden border-2 border-gray-200 dark:border-gray-700 shadow-lg grayscale hover:grayscale-0 transition-all duration-300">
             <Image
               src="/profile.jpg"
               alt="Abdulsalam Hassan"
               fill
               priority
-              sizes="(min-width: 640px) 12rem, 10rem"
+              sizes="(min-width: 640px) 12rem, 8rem"
               className="object-cover"
             />
           </div>
         </div>
 
         {/* Text Content */}
-        <div className="flex flex-col items-center text-center sm:items-start sm:text-left space-y-5 flex-1">
-          <div>
+        <div className="flex flex-col items-center text-center sm:items-start sm:text-left space-y-5 flex-1 min-w-0">
+          <div className="space-y-2">
             <h1 className="text-2xl font-bold text-gray-900 tracking-tight md:text-4xl dark:text-white sm:whitespace-nowrap">
               Abdulsalam Hassan Shiikhow
             </h1>
-            <p className="text-sm md:text-md text-gray-600 font-medium mt-2 sm:whitespace-nowrap">
+            <p className="text-sm md:text-md text-gray-600 font-medium sm:whitespace-nowrap">
               Computer Science Student | FullStack Software Engineer
             </p>
           </div>
 
-          <div className="flex flex-wrap gap-4 text-sm font-medium">
+          <div className="flex flex-wrap gap-4 text-sm font-medium justify-center sm:justify-start">
             <Link
               href="https://github.com/abdulsalamhassan"
               target="_blank"
@@ -267,6 +267,7 @@ export default function Home() {
             <Mail size={18} />
             Say Hello
           </a>
+          <p className="text-sm text-gray-500 mt-5">Email usually replies within 24–48 hours.</p>
         </div>
       </Section>
       <Separator className="opacity-40 bg-black dark:bg-white" />
