@@ -36,6 +36,7 @@ export default function Home() {
             <Image
               src="/profile.jpg"
               alt="Abdulsalam Hassan"
+              quality={100}
               fill
               priority
               sizes="(min-width: 640px) 12rem, 8rem"
