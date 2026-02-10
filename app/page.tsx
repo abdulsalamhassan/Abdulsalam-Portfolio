@@ -13,11 +13,12 @@ import {
   GraduationCap,
   BookOpen,
   Sparkles,
-  Database,
-  ExternalLink
+  Database
 } from "lucide-react";
 import Link from "next/link";
 import { ThemeToggle } from "@/components/theme-toggle";
+import Image from "next/image";
+import { CurrentYear } from "@/components/current-year";
 
 export default function Home() {
   return (
@@ -32,10 +33,13 @@ export default function Home() {
         {/* Profile Image */}
         <div className="shrink-0">
           <div className="relative w-40 h-40 sm:w-48 sm:h-48 rounded-2xl overflow-hidden border-2 border-gray-200 dark:border-gray-700 shadow-lg grayscale hover:grayscale-0 transition-all duration-300">
-            <img
+            <Image
               src="/profile.jpg"
               alt="Abdulsalam Hassan"
-              className="w-full h-full object-cover"
+              fill
+              priority
+              sizes="(min-width: 640px) 12rem, 10rem"
+              className="object-cover"
             />
           </div>
         </div>
@@ -43,10 +47,10 @@ export default function Home() {
         {/* Text Content */}
         <div className="flex flex-col items-center text-center sm:items-start sm:text-left space-y-5 flex-1">
           <div>
-            <h1 className="text-2xl font-bold text-gray-900 tracking-tight md:text-4xl dark:text-white whitespace-nowrap">
+            <h1 className="text-2xl font-bold text-gray-900 tracking-tight md:text-4xl dark:text-white sm:whitespace-nowrap">
               Abdulsalam Hassan Shiikhow
             </h1>
-            <p className="text-sm md:text-md text-gray-600 font-medium mt-2 whitespace-nowrap">
+            <p className="text-sm md:text-md text-gray-600 font-medium mt-2 sm:whitespace-nowrap">
               Computer Science Student | FullStack Software Engineer
             </p>
           </div>
@@ -55,6 +59,7 @@ export default function Home() {
             <Link
               href="https://github.com/abdulsalamhassan"
               target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 hover:text-black dark:hover:text-white transition-all"
             >
               <Github size={16} />
@@ -63,6 +68,7 @@ export default function Home() {
             <Link
               href="https://www.linkedin.com/in/abdulsalamhassan11/"
               target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 hover:bg-blue-100 dark:hover:bg-blue-900/50 transition-all"
             >
               <Linkedin size={16} />
@@ -266,7 +272,7 @@ export default function Home() {
       <Separator className="opacity-40 bg-black dark:bg-white" />
 
       <footer className="text-xs text-center text-gray-400 mt-20 pb-8">
-        <p>&copy; {new Date().getFullYear()} Abdulsalam Hassan. FullStack Engineer.</p>
+        <p>&copy; <CurrentYear /> Abdulsalam Hassan. FullStack Engineer.</p>
       </footer>
     </div>
   );
