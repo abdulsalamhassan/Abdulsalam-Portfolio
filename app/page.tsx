@@ -10,10 +10,10 @@ import {
   Layout,
   Brain,
   Wrench,
-  GraduationCap,
   BookOpen,
   Sparkles,
-  Database
+  Database,
+  GraduationCap
 } from "lucide-react";
 import Link from "next/link";
 import { ThemeToggle } from "@/components/theme-toggle";
@@ -52,7 +52,7 @@ export default function Home() {
               Abdulsalam Hassan Shiikhow
             </h1>
             <p className="text-sm md:text-md text-gray-600 font-medium sm:whitespace-nowrap">
-              Computer Science Student | FullStack Software Engineer
+              Full-Stack Software Engineer | Scalable Web & AI Systems
             </p>
           </div>
 
@@ -89,8 +89,8 @@ export default function Home() {
       {/* About */}
       <Section title="About Me">
         <p className="text-lg leading-8 text-gray-800 dark:text-gray-300 font-normal">
-          I am a computer science student focused on <strong className="font-semibold text-gray-900 dark:text-gray-100">FullStack Software Engineering</strong> and <strong className="font-semibold text-gray-900 dark:text-gray-100">AI-enabled systems</strong>.
-          I prioritize fundamentals, clean architecture, and production-ready code.
+          I am a Full-Stack Software Engineer focused on <strong className="font-semibold text-gray-900 dark:text-gray-100">on building scalable, production-ready web applications</strong> and <strong className="font-semibold text-gray-900 dark:text-gray-100">AI-enabled systems</strong>.
+          I prioritize strong fundamentals, clean architecture, and maintainable code.
           Currently, I am building scalable applications with <strong className="font-semibold text-gray-900 dark:text-gray-100">TypeScript</strong>, <strong className="font-semibold text-gray-900 dark:text-gray-100">React/NextJS</strong>, <strong className="font-semibold text-gray-900 dark:text-gray-100">NestJS</strong>, <strong className="font-semibold text-gray-900 dark:text-gray-100">PostgreSQL</strong>, and <strong className="font-semibold text-gray-900 dark:text-gray-100">Python</strong>.
         </p>
       </Section>
@@ -221,6 +221,15 @@ export default function Home() {
 
               <div className="flex items-start gap-3 p-3 bg-blue-50 dark:bg-gray-800 rounded-lg border border-blue-100 dark:bg-gray-800 hover:border-blue-200 transition-all">
                 <div className="p-2 bg-blue-100 rounded-md">
+                  <GraduationCap size={18} className="text-blue-700" />
+                </div>
+                <div className="flex-1">
+                  <p className="font-medium text-gray-900 text-sm dark:text-gray-100">FullStack Development Specialization</p>
+                  <p className="text-xs text-gray-500 mt-0.5 dark:text-gray-100">Coursera</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3 p-3 bg-blue-50 dark:bg-gray-800 rounded-lg border border-blue-100 dark:bg-gray-800 hover:border-blue-200 transition-all">
+                <div className="p-2 bg-blue-100 rounded-md">
                   <BookOpen size={18} className="text-blue-700" />
                 </div>
                 <div className="flex-1">
@@ -235,7 +244,7 @@ export default function Home() {
                 </div>
                 <div className="flex-1">
                   <p className="font-medium text-gray-900 text-sm dark:text-gray-100">SQL & PostgreSQL Fundamentals</p>
-                  <p className="text-xs text-gray-500 mt-0.5 dark:text-gray-100">Coursera</p>
+                  <p className="text-xs text-gray-500 mt-0.5 dark:text-gray-100">Udemy</p>
                 </div>
               </div>
 
