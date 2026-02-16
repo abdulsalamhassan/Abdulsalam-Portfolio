@@ -12,7 +12,7 @@ export function JsonLd() {
         sameAs: [
             SITE_CONFIG.github,
             SITE_CONFIG.linkedin,
-            "https://twitter.com/abdulsalamhassan", // Add if available
+            "https://www.facebook.com/abdulsalam.shiikhow", // Add if available
         ],
         knowsAbout: [
             "Software Engineering",
