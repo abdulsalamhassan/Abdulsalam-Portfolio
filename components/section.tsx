@@ -1,20 +1,22 @@
-import { ReactNode } from "react";
+import { FadeIn } from "@/components/fade-in";
 
 interface SectionProps {
-    title?: string;
-    children: ReactNode;
-    className?: string;
+    title: string;
+    children: React.ReactNode;
 }
 
-export function Section({ title, children, className = "" }: SectionProps) {
+export function Section({ title, children }: SectionProps) {
     return (
-        <section className={`mb-12 ${className}`}>
-            {title && (
-                <h2 className="text-sm font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-4">
+        <section className="flex flex-col gap-6">
+            <FadeIn>
+                <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 uppercase tracking-wider relative inline-block">
                     {title}
+                    <span className="absolute -bottom-1 left-0 w-12 h-1 bg-blue-500 rounded-full"></span>
                 </h2>
-            )}
-            {children}
+            </FadeIn>
+            <FadeIn delay={0.1}>
+                {children}
+            </FadeIn>
         </section>
     );
 }

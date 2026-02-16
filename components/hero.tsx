@@ -1,13 +1,16 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { Github, Linkedin, Mail } from "lucide-react";
 import { SITE_CONFIG } from "@/lib/data";
+import { FadeIn } from "@/components/fade-in";
 
 export function Hero() {
     return (
         <header className="flex flex-col sm:flex-row items-center gap-8 sm:gap-12">
             {/* Profile Image */}
-            <div className="shrink-0">
+            <FadeIn className="shrink-0">
                 <div className="relative w-32 h-32 sm:w-48 sm:h-48 rounded-2xl overflow-hidden border-2 border-gray-200 dark:border-gray-700 shadow-lg grayscale hover:grayscale-0 transition-all duration-300">
                     <Image
                         src={SITE_CONFIG.profileImage}
@@ -19,20 +22,20 @@ export function Hero() {
                         className="object-cover"
                     />
                 </div>
-            </div>
+            </FadeIn>
 
             {/* Text Content */}
             <div className="flex flex-col items-center text-center sm:items-start sm:text-left space-y-5 flex-1 min-w-0">
-                <div className="space-y-2">
+                <FadeIn delay={0.1} className="space-y-2">
                     <h1 className="text-2xl font-bold text-gray-900 tracking-tight md:text-4xl dark:text-white sm:whitespace-nowrap">
                         {SITE_CONFIG.name}
                     </h1>
                     <p className="text-sm md:text-md text-gray-600 font-medium sm:whitespace-nowrap">
                         {SITE_CONFIG.title}
                     </p>
-                </div>
+                </FadeIn>
 
-                <div className="flex flex-wrap gap-4 text-sm font-medium justify-center sm:justify-start">
+                <FadeIn delay={0.2} className="flex flex-wrap gap-4 text-sm font-medium justify-center sm:justify-start">
                     <Link
                         href={SITE_CONFIG.github}
                         target="_blank"
@@ -58,7 +61,7 @@ export function Hero() {
                         <Mail size={16} />
                         Email
                     </Link>
-                </div>
+                </FadeIn>
             </div>
         </header>
     );

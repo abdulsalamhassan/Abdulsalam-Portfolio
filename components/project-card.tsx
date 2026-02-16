@@ -1,6 +1,9 @@
+"use client";
+
 import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
 import { ExternalLink } from "lucide-react";
+import { motion } from "framer-motion";
 
 interface ProjectCardProps {
     title: string;
@@ -12,7 +15,11 @@ interface ProjectCardProps {
 
 export function ProjectCard({ title, description, tags, link, bullets }: ProjectCardProps) {
     return (
-        <div className="p-6 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 hover:border-blue-300 dark:hover:border-blue-500 hover:shadow-md transition-all duration-200">
+        <motion.div
+            whileHover={{ y: -5 }}
+            transition={{ type: "spring", stiffness: 300 }}
+            className="p-6 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 hover:border-blue-300 dark:hover:border-blue-500 hover:shadow-md transition-colors duration-200"
+        >
             {/* Header */}
             <div className="mb-4">
                 <div className="flex    items-start justify-between gap-4 mb-2">
@@ -55,6 +62,6 @@ export function ProjectCard({ title, description, tags, link, bullets }: Project
                     ))}
                 </ul>
             </div>
-        </div>
+        </motion.div>
     );
 }
