@@ -20,6 +20,7 @@ export const SITE_CONFIG = {
     github: "https://github.com/abdulsalamhassan",
     linkedin: "https://www.linkedin.com/in/abdulsalamhassan11/",
     profileImage: "/profile.jpg",
+    interviewVideo: "https://www.facebook.com/share/v/17ETcRR4kY/",
 };
 
 export const TECH_STACK = [

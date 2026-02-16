@@ -14,6 +14,15 @@ export function JsonLd() {
             SITE_CONFIG.linkedin,
             "https://www.facebook.com/abdulsalam.shiikhow", // Add if available
         ],
+        subjectOf: {
+            "@type": "VideoObject",
+            name: "Interview with SIMAD University",
+            description: "Interview featuring Abdulsalam Hassan Shiikhow at SIMAD University.",
+            uploadDate: "2024-01-01", // Approximate date, serves as a placeholder
+            thumbnailUrl: `https://abdulsalamh.vercel.app${SITE_CONFIG.profileImage}`, // Fallback thumbnail
+            contentUrl: SITE_CONFIG.interviewVideo,
+            embedUrl: SITE_CONFIG.interviewVideo,
+        },
         knowsAbout: [
             "Software Engineering",
             "Full-Stack Development",
