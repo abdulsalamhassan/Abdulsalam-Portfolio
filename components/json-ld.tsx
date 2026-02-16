@@ -5,21 +5,21 @@ export function JsonLd() {
         "@context": "https://schema.org",
         "@type": "Person",
         name: SITE_CONFIG.name,
-        url: "https://abdulsalamh.vercel.app/", // Ideally this comes from env or config
+        url: "https://abdulsalamh.vercel.app/",
         jobTitle: "Full-Stack Software Engineer",
         description: SITE_CONFIG.description,
         image: `https://abdulsalamh.vercel.app${SITE_CONFIG.profileImage}`,
         sameAs: [
             SITE_CONFIG.github,
             SITE_CONFIG.linkedin,
-            "https://www.facebook.com/abdulsalam.shiikhow", // Add if available
+            "https://www.facebook.com/abdulsalam.shiikhow",
         ],
         subjectOf: {
             "@type": "VideoObject",
             name: "Interview with SIMAD University",
             description: "Interview featuring Abdulsalam Hassan Shiikhow at SIMAD University.",
-            uploadDate: "2024-01-01", // Approximate date, serves as a placeholder
-            thumbnailUrl: `https://abdulsalamh.vercel.app${SITE_CONFIG.profileImage}`, // Fallback thumbnail
+            uploadDate: "2025-11-03",
+            thumbnailUrl: `https://abdulsalamh.vercel.app${SITE_CONFIG.profileImage}`,
             contentUrl: SITE_CONFIG.interviewVideo,
             embedUrl: SITE_CONFIG.interviewVideo,
         },
