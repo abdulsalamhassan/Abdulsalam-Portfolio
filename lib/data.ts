@@ -56,35 +56,36 @@ export const TECH_STACK = [
 
 export const PROJECTS = [
     {
-        title: "AI-Powered Content Platform",
-        description: "A scalable platform generating personalized content using LLMs.",
-        tags: ["NestJS", "Python", "OpenAI API", "PostgreSQL"],
-        link: "https://github.com/abdulsalamhassan",
+        title: "UniMind — AI Academic Assistant",
+        description: "AI-Powered Academic Infrastructure Transforming static course materials into structured, interactive, chapter-level learning experiences using retrieval-augmented intelligence.",
+
+        tags: ["NestJS", "Python (fastAPI)", "OpenAI API", "PostgreSQL", "Next.js", "Tailwind", "Docker"],
+        link: "https://github.com/abdulsalamhassan/UniMind",
         bullets: [
-            "Architected a microservices-based backend using NestJS for core logic and Python FastAPI for AI processing.",
-            "Integrated OpenAI's GPT-4 API to generate dynamic text based on user preferences.",
-            "Implemented efficient queue-based processing with Redis to handle high-concurrency requests."
+            "Architected an AI-powered academic platform that transforms static course materials into structured interactive chapter-level learning experiences using Retrieval-Augmented Generation (RAG)",
+            " Built a NestJS backend and a FastAPI AI microservice, connected via a clean service layer with PostgreSQL for persistence.",
+            "Deployed via Docker with a Next.js frontend hosted on Vercel; lecturer-approved AI assistance foruniversity students."
         ]
     },
     {
-        title: "E-Commerce API with Caching",
-        description: "High-performance backend API for an online retail system.",
-        tags: ["Node.js", "Express", "Redis", "Docker"],
-        link: "https://github.com/abdulsalamhassan",
+        title: "Multi-Tenant API Platform",
+        description: "Multi-tenant REST API built with NestJS, Prisma, and PostgreSQL with JWT auth, organization-scoped projects/tasks CRUD, pagination, validation, Swagger docs, and Winston logging.",
+        tags: ["NestJS", "JWT", "PostgreSQL", "Prisma", "TypeScript", "Docker"],
+        link: "https://github.com/abdulsalamhassan/Orchard-API",
         bullets: [
-            "Developed RESTful endpoints for product management, user authentication, and order processing.",
-            "Optimized database queries and implemented Redis caching, reducing response times by 40%.",
+            " Designed and implemented a robust multi-tenant REST API using NestJS, Prisma, and PostgreSQL, featuring JWT authentication and organization-scoped CRUD operations for projects and tasks.",
+            "Multi-tenant REST API built with NestJS, Prisma, and PostgreSQL with JWT auth, organizationscoped projects/tasks CRUD, pagination, validation, Swagger docs, and Winston logging.",
             "Containerized the application using Docker for consistent development and deployment environments."
         ]
     },
     {
-        title: "Real-time Chat Application",
-        description: "Full-stack chat app with real-time messaging capabilities.",
-        tags: ["React", "Socket.io", "MongoDB", "Tailwind"],
-        link: "https://github.com/abdulsalamhassan",
+        title: "Issue Tracker & Project Management System",
+        description: "Full-stack issue tracking system with project management, role-based access control, and real-time status updates, built with a modular frontend and scalable backend architecture.",
+        tags: ["NodeJs", "ExpressJs", "NextJs", "MongoDB", "Tailwind"],
+        link: "https://github.com/abdulsalamhassan/DevTrack",
         bullets: [
-            "Built a responsive frontend using React and Tailwind CSS for a seamless user experience.",
-            "Implemented real-time bi-directional communication using Socket.io.",
+            "Designed and built a full-stack issue tracking system with project management, role-based access control (RBAC), and real-time status updates.",
+            "Implemented a modular frontend architecture using Next.js and Tailwind CSS, ensuring a responsive and intuitive user interface.",
             "Designed a MongoDB schema to store message history and user profiles efficiently."
         ]
     }
