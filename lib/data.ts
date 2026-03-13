@@ -63,8 +63,9 @@ export const PROJECTS = [
         link: "https://github.com/abdulsalamhassan/UniMind",
         bullets: [
             "Architected an AI-powered academic platform that transforms static course materials into structured interactive chapter-level learning experiences using Retrieval-Augmented Generation (RAG)",
+            "lecturer-approved AI assistance for university students.",
             " Built a NestJS backend and a FastAPI AI microservice, connected via a clean service layer with PostgreSQL for persistence.",
-            "Deployed via Docker with a Next.js frontend hosted on Vercel; lecturer-approved AI assistance foruniversity students."
+            "Deployed via Docker with a Next.js frontend hosted on Vercel; "
         ]
     },
     {
