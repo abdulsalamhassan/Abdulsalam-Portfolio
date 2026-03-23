@@ -122,7 +122,7 @@ export type Project = {
 
 export const PROJECTS: Project[] = [
   {
-    title: "DroughtGuard",
+    title: "DroughtGuard AI",
     slug: "droughtguard",
     description:
       "Climate-aware drought intelligence system translating environmental signals into usable decisions for East African communities.",
@@ -139,10 +139,10 @@ export const PROJECTS: Project[] = [
     ],
     links: [],
     bullets: [
-      "Structured the system as a Next.js client over a FastAPI forecasting layer so geospatial visualization stays responsive while heavier AI analysis runs asynchronously.",
-      "Designed a pipeline that stores regional drought observations in PostgreSQL before LLM summarization, reducing repeated inference cost and preserving auditable records.",
-      "Used map-first rendering to surface district-level risk signals quickly instead of burying the decision point in long narrative output.",
-      "Framed the product around East African infrastructure limits, prioritizing compact payloads and graceful fallback states when external model calls are slow.",
+      "Separated forecasting and UI services to isolate LLM latency from map rendering, keeping the interface responsive when analysis is slow.",
+      "Chose PostgreSQL over Firebase to keep query control over regional climate datasets with filtering that would become brittle in a document store.",
+      "Implemented graceful degradation so the system returns cached regional data when the Claude API is unavailable.",
+      "Designed the architecture for unstable connectivity, so weak network conditions do not break the core drought-readout experience.",
     ],
     proof: ["Architecture", "Data Flow", "Tradeoff", "Constraint"],
     architecture: [
@@ -174,10 +174,9 @@ export const PROJECTS: Project[] = [
     ],
     links: [{ label: "GitHub", href: "https://github.com/abdulsalamhassan/UniMind" }],
     bullets: [
-      "Architected a dual-service backend separating NestJS orchestration from FastAPI AI processing to isolate LLM latency from core API response times.",
-      "Modeled chapter-level retrieval instead of whole-document prompting, improving context precision and making lecturer approval workflows easier to audit.",
-      "Containerized the stack with Docker so the same academic pipeline can run consistently across local development and deployment targets.",
-      "Used PostgreSQL-backed persistence for course structure and generation history, avoiding brittle file-based state as content volume grows.",
+      "Separated NestJS orchestration from FastAPI generation so AI latency does not block academic CRUD and chapter delivery.",
+      "Used chapter-level retrieval instead of whole-document prompting to improve context precision and reduce irrelevant completions.",
+      "Stored course structure and generation history in PostgreSQL to keep lecturer review auditable as content volume grows.",
     ],
     proof: ["Architecture", "Data Flow", "Tradeoff", "Scale"],
     architecture: [
@@ -202,10 +201,9 @@ export const PROJECTS: Project[] = [
     tags: ["NestJS", "JWT", "PostgreSQL", "Prisma", "TypeScript", "Docker"],
     links: [{ label: "GitHub", href: "https://github.com/abdulsalamhassan/Orchard-API" }],
     bullets: [
-      "Implemented organization-scoped access boundaries so project and task queries resolve against tenant context instead of trusting client-supplied identifiers.",
-      "Combined Prisma validation, DTO constraints, and Swagger documentation to reduce contract drift across authenticated endpoints.",
-      "Added Winston logging and pagination to make operational debugging and list performance predictable as tenant data grows.",
-      "Containerized the service with Docker for reproducible environments across development and deployment.",
+      "Enforced tenant context in the service layer so project queries cannot leak data by trusting client-supplied organization identifiers.",
+      "Combined DTO validation with Prisma constraints to reduce contract drift across authenticated endpoints.",
+      "Added structured logging and pagination early so debugging and list performance stay predictable as tenant data expands.",
     ],
     proof: ["Tradeoff", "Constraint", "Failure Handling"],
     architecture: [
@@ -229,10 +227,9 @@ export const PROJECTS: Project[] = [
     tags: ["Node.js", "Express.js", "Next.js", "MongoDB", "Tailwind CSS"],
     links: [{ label: "GitHub", href: "https://github.com/abdulsalamhassan/DevTrack" }],
     bullets: [
-      "Designed RBAC boundaries so project actions map to role permissions instead of scattered frontend checks, tightening control over operational workflows.",
-      "Used a modular Next.js frontend to keep issue views, project controls, and status updates maintainable as the interface expanded.",
-      "Designed a MongoDB schema for user profiles and message history that favors flexible iteration without forcing early relational complexity.",
-      "Focused the system on real team coordination constraints, balancing project visibility with a lightweight stack suitable for rapid iteration.",
+      "Mapped project actions to RBAC rules in the backend so permissions do not depend on fragile frontend checks.",
+      "Kept the Next.js interface modular so issue workflows could expand without turning the project board into a coupled screen.",
+      "Chose MongoDB during early product shaping to preserve schema flexibility while workflow assumptions were still changing.",
     ],
     proof: ["Tradeoff", "Data Flow", "Constraint"],
     architecture: ["User", "Next.js UI", "Express API", "RBAC Layer", "MongoDB"],

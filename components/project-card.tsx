@@ -1,87 +1,81 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
-import { ArchitectureDiagram } from "@/components/architecture-diagram";
 import type { Project } from "@/lib/data";
 
 interface ProjectCardProps {
   project: Project;
+  compact?: boolean;
+  lastHalf?: boolean;
 }
 
-export function ProjectCard({ project }: ProjectCardProps) {
+const STATUS_LABELS: Record<Project["status"], string> = {
+  Live: "Live",
+  "In Development": "In Dev",
+  Prototype: "Prototype",
+};
+
+export function ProjectCard({ project, compact = false, lastHalf = false }: ProjectCardProps) {
+  const statusClass =
+    project.status === "Live"
+      ? "status-live"
+      : project.status === "In Development"
+        ? "status-dev"
+        : "status-prototype";
+
+  const cardClass = [
+    "project-card",
+    project.featured ? "featured" : "standard",
+    compact ? "project-card-compact" : "project-card-hero",
+    lastHalf ? "project-card-half" : "",
+  ]
+    .filter(Boolean)
+    .join(" ");
+
+  const primaryLink = project.links[0];
+
   return (
-    <article className={`project-card ${project.featured ? "featured" : ""}`}>
+    <article className={cardClass}>
       <div className="project-header">
         <div className="project-title-wrap">
           {project.eyebrow ? <p className="project-eyebrow">{project.eyebrow}</p> : null}
-          <div className="stack stack-3">
-            <h3 className="project-title">{project.title}</h3>
-            <p className="project-description">{project.description}</p>
-          </div>
+          <h3 className="project-title">{project.title}</h3>
+          <p className="project-description">{project.description}</p>
         </div>
 
-        <span className="pill status-pill">{project.status}</span>
+        <div className="project-header-actions">
+          <span className={`project-status ${statusClass}`}>{STATUS_LABELS[project.status]}</span>
+          {primaryLink ? (
+            <Link
+              href={primaryLink.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="project-external"
+              aria-label={`${project.title} external link`}
+            >
+              <ArrowUpRight size={15} />
+            </Link>
+          ) : null}
+        </div>
       </div>
 
-      <div className="tag-row" style={{ marginBottom: "24px" }}>
+      <div className="project-tags">
         {project.tags.map((tag) => (
-          <span key={tag} className="pill">
+          <span key={tag} className="project-tag">
             {tag}
           </span>
         ))}
       </div>
 
-      <div className="project-layout">
-        <div className="stack stack-5">
-          <ul className="project-bullets">
-            {project.bullets.map((bullet) => (
-              <li key={bullet} className="project-bullet-item">
-                <span className="project-dot" />
-                <span className="project-bullet">{bullet}</span>
-              </li>
-            ))}
-          </ul>
+      <div className="project-divider" />
 
-          <div className="link-row">
-            {project.links.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="ghost-button"
-              >
-                {link.label}
-                <ArrowUpRight size={15} />
-              </Link>
-            ))}
-          </div>
-        </div>
-
-        <div className="project-side">
-          <ArchitectureDiagram nodes={project.architecture} />
-
-          <div className="surface project-proof-card">
-            <div className="project-proof-block">
-              <p className="project-proof-label">Data Flow</p>
-              <p className="project-proof-text">{project.flow}</p>
-            </div>
-            <div className="project-proof-block project-proof-divider">
-              <p className="project-proof-label">Key Tradeoff</p>
-              <p className="project-proof-text">{project.tradeoff}</p>
-            </div>
-            <div className="project-proof-block project-proof-divider">
-              <p className="project-proof-label">Engineering Proof</p>
-              <div className="tag-row">
-                {project.proof.map((item) => (
-                  <span key={item} className="pill">
-                    {item}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <ul className="project-bullets">
+        {project.bullets.slice(0, compact ? 3 : 4).map((bullet) => (
+          <li key={bullet} className="project-bullet-item">
+            <span className="project-bullet-bar" />
+            <span className="project-bullet">{bullet}</span>
+          </li>
+        ))}
+      </ul>
     </article>
   );
 }
