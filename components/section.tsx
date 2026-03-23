@@ -12,8 +12,8 @@ export function Section({ number, label, title, children }: SectionProps) {
         <div className="section-marker" aria-hidden="true">
           {number}
         </div>
-        <div className="space-y-8">
-          <header className="space-y-3">
+        <div className="section-content">
+          <header className="stack stack-3">
             <p className="section-label">{label}</p>
             <h2 className="section-title">{title}</h2>
           </header>

@@ -4,10 +4,10 @@ import { ABOUT_PARAGRAPHS } from "@/lib/data";
 export function About() {
   return (
     <Section number="01" label="ABOUT" title="Engineer. Builder. Problem Solver.">
-      <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_280px]">
-        <div className="space-y-4">
+      <div className="about-grid">
+        <div className="about-copy">
           {ABOUT_PARAGRAPHS.map((paragraph) => (
-            <p key={paragraph} className="max-w-3xl text-sm leading-7 text-[var(--muted)] sm:text-[0.95rem]">
+            <p key={paragraph} className="about-paragraph">
               {paragraph
                 .split(/(NestJS|FastAPI|PostgreSQL|Mogadishu|SIMAD University|Chevening scholarship)/g)
                 .map((part, index) =>
@@ -23,20 +23,20 @@ export function About() {
           ))}
         </div>
 
-        <div className="surface grid gap-4 p-5 text-xs uppercase tracking-[0.22em] text-[var(--muted)]">
-          <div className="space-y-2 border-b border-[var(--border)] pb-4">
+        <div className="surface about-panel">
+          <div className="about-panel-block about-panel-divider">
             <p>Focus</p>
-            <p className="text-[var(--text)]">Backend systems</p>
-            <p className="text-[var(--text)]">AI workflows</p>
+            <p className="about-panel-value">Backend systems</p>
+            <p className="about-panel-value">AI workflows</p>
           </div>
-          <div className="space-y-2 border-b border-[var(--border)] pb-4">
+          <div className="about-panel-block about-panel-divider">
             <p>Base</p>
-            <p className="text-[var(--text)]">Mogadishu, Somalia</p>
+            <p className="about-panel-value">Mogadishu, Somalia</p>
           </div>
-          <div className="space-y-2">
+          <div className="about-panel-block">
             <p>Direction</p>
-            <p className="text-[var(--text)]">Global engineering roles</p>
-            <p className="text-[var(--text)]">Chevening pathway</p>
+            <p className="about-panel-value">Global engineering roles</p>
+            <p className="about-panel-value">Chevening pathway</p>
           </div>
         </div>
       </div>

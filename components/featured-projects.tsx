@@ -7,11 +7,11 @@ export function FeaturedProjects() {
   const standardProjects = PROJECTS.filter((project) => !project.featured);
 
   return (
-    <Section number="03" label="03 — WORK" title="Systems work with clear engineering decisions.">
-      <div id="work" className="space-y-6">
+    <Section number="03" label="03 - WORK" title="Systems work with clear engineering decisions.">
+      <div id="work" className="projects-shell">
         {featuredProject ? <ProjectCard project={featuredProject} /> : null}
 
-        <div className="grid gap-6 xl:grid-cols-2">
+        <div className="project-grid">
           {standardProjects.map((project) => (
             <ProjectCard key={project.slug} project={project} />
           ))}
