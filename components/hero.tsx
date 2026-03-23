@@ -2,67 +2,84 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Github, Linkedin, Mail } from "lucide-react";
-import { SITE_CONFIG } from "@/lib/data";
-import { FadeIn } from "@/components/fade-in";
+import { ArrowRight, Github, Mail } from "lucide-react";
+import { HERO_BADGES, SITE_CONFIG } from "@/lib/data";
 
 export function Hero() {
-    return (
-        <header className="flex flex-col sm:flex-row items-center gap-8 sm:gap-12">
-            {/* Profile Image */}
-            <FadeIn className="shrink-0">
-                <div className="relative w-32 h-32 sm:w-48 sm:h-48 rounded-2xl overflow-hidden border-2 border-gray-200 dark:border-gray-700 shadow-lg grayscale hover:grayscale-0 transition-all duration-300">
-                    <Image
-                        src={SITE_CONFIG.profileImage}
-                        alt={SITE_CONFIG.name}
-                        quality={100}
-                        fill
-                        priority
-                        sizes="(min-width: 640px) 12rem, 8rem"
-                        className="object-cover"
-                    />
-                </div>
-            </FadeIn>
+  const badgeRail = [...HERO_BADGES, ...HERO_BADGES];
 
-            {/* Text Content */}
-            <div className="flex flex-col items-center text-center sm:items-start sm:text-left space-y-5 flex-1 min-w-0">
-                <FadeIn delay={0.1} className="space-y-2">
-                    <h1 className="text-2xl font-bold text-gray-900 tracking-tight md:text-4xl dark:text-white sm:whitespace-nowrap">
-                        {SITE_CONFIG.name}
-                    </h1>
-                    <p className="text-sm md:text-md text-gray-600 font-medium sm:whitespace-nowrap">
-                        {SITE_CONFIG.title}
-                    </p>
-                </FadeIn>
+  return (
+    <section className="min-h-screen flex flex-col justify-between py-8 sm:py-10">
+      <div className="flex items-start justify-end">
+        <Link
+          href={SITE_CONFIG.github}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="pill gap-2 uppercase tracking-[0.24em]"
+        >
+          <Github size={14} />
+          GitHub
+        </Link>
+      </div>
 
-                <FadeIn delay={0.2} className="flex flex-wrap gap-4 text-sm font-medium justify-center sm:justify-start">
-                    <Link
-                        href={SITE_CONFIG.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 hover:text-black dark:hover:text-white transition-all"
-                    >
-                        <Github size={16} />
-                        GitHub
-                    </Link>
-                    <Link
-                        href={SITE_CONFIG.linkedin}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 hover:bg-blue-100 dark:hover:bg-blue-900/50 transition-all"
-                    >
-                        <Linkedin size={16} />
-                        LinkedIn
-                    </Link>
-                    <Link
-                        href={`mailto:${SITE_CONFIG.email}`}
-                        className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-gray-50 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-gray-200 transition-all border border-gray-200 dark:border-gray-700"
-                    >
-                        <Mail size={16} />
-                        Email
-                    </Link>
-                </FadeIn>
+      <div className="grid gap-12 lg:grid-cols-[minmax(0,1.15fr)_minmax(320px,0.85fr)] lg:items-center">
+        <div className="space-y-8">
+          <div className="space-y-5">
+            <p className="text-[10px] uppercase tracking-[0.42em] text-[var(--muted)]">
+              {SITE_CONFIG.heroLabel}
+            </p>
+            <div className="space-y-4">
+              <h1 className="hero-title">{SITE_CONFIG.name.toUpperCase()}</h1>
+              <p className="max-w-xl text-sm leading-7 text-[var(--muted)] sm:text-base">
+                {SITE_CONFIG.tagline}
+              </p>
+              <p className="max-w-xl text-sm leading-7 text-[var(--text)]">
+                <span className="technical-phrase">{SITE_CONFIG.location}</span>
+                {" · "}
+                <span className="text-[var(--muted)]">{SITE_CONFIG.identity}</span>
+              </p>
             </div>
-        </header>
-    );
+          </div>
+
+          <div className="flex flex-col gap-3 sm:flex-row">
+            <Link href="#work" className="ghost-button primary">
+              View My Work
+              <ArrowRight size={15} />
+            </Link>
+            <Link href="#contact" className="ghost-button">
+              Get In Touch
+              <Mail size={15} />
+            </Link>
+          </div>
+        </div>
+
+        <div className="relative mx-auto w-full max-w-md">
+          <div className="absolute inset-6 bg-[rgba(0,212,170,0.12)] blur-3xl" aria-hidden="true" />
+          <div
+            className="relative overflow-hidden border-2 border-[var(--primary)] bg-[var(--surface)]"
+            style={{ borderRadius: "4px", boxShadow: "0 0 60px rgba(0,212,170,0.15)" }}
+          >
+            <Image
+              src={SITE_CONFIG.profileImage}
+              alt={SITE_CONFIG.name}
+              priority
+              width={700}
+              height={860}
+              className="h-full w-full object-cover grayscale-[12%]"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div className="marquee mt-12">
+        <div className="marquee-track py-4">
+          {badgeRail.map((badge, index) => (
+            <div key={`${badge}-${index}`} className="pill mx-2 whitespace-nowrap">
+              {badge}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 }

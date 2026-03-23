@@ -1,67 +1,93 @@
-"use client";
-
-import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
-import { ExternalLink } from "lucide-react";
-import { motion } from "framer-motion";
+import { ArrowUpRight } from "lucide-react";
+import { ArchitectureDiagram } from "@/components/architecture-diagram";
+import type { Project } from "@/lib/data";
 
 interface ProjectCardProps {
-    title: string;
-    description: string;
-    tags: string[];
-    link: string;
-    bullets: string[];
+  project: Project;
 }
 
-export function ProjectCard({ title, description, tags, link, bullets }: ProjectCardProps) {
-    return (
-        <motion.div
-            whileHover={{ y: -5 }}
-            transition={{ type: "spring", stiffness: 300 }}
-            className="p-6 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 hover:border-blue-300 dark:hover:border-blue-500 hover:shadow-md transition-colors duration-200"
-        >
-            {/* Header */}
-            <div className="mb-4">
-                <div className="flex    items-start justify-between gap-4 mb-2">
-                    <Link
-                        href={link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="group flex items-center gap-2 flex-1"
-                    >
-                        <h3 className="text-lg dark:text-gray-100 font-bold text-gray-900 dark:text-gray-100 group-hover:text-blue-700 dark:group-hover:text-blue-400 transition-colors">
-                            {title}
-                        </h3>
-                        <ExternalLink size={16} className="text-gray-400 dark:text-gray-600 group-hover:text-blue-700 dark:group-hover:text-blue-400 transition-colors" />
-                    </Link>
-                </div>
-                <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed mb-3">
-                    {description}
-                </p>
-                <div className="flex flex-wrap gap-2">
-                    {tags.map((tag) => (
-                        <Badge
-                            key={tag}
-                            variant="secondary"
-                            className="text-xs font-medium text-blue-700 dark:text-blue-50 bg-blue-50 dark:bg-blue-900/30 hover:bg-blue-100 dark:hover:bg-blue-900/50 border border-blue-100 dark:border-blue-900"
-                        >
-                            {tag}
-                        </Badge>
-                    ))}
-                </div>
-            </div>
+export function ProjectCard({ project }: ProjectCardProps) {
+  return (
+    <article className={`project-card ${project.featured ? "featured" : ""}`}>
+      <div className="mb-6 flex flex-wrap items-start justify-between gap-3">
+        <div className="space-y-3">
+          {project.eyebrow ? (
+            <p className="text-[11px] uppercase tracking-[0.36em] text-[var(--primary)]">
+              {project.eyebrow}
+            </p>
+          ) : null}
+          <div className="space-y-3">
+            <h3 className="display-font text-[clamp(1.8rem,4vw,2.7rem)] leading-[0.95] tracking-[-0.05em]">
+              {project.title}
+            </h3>
+            <p className="max-w-2xl text-sm leading-7 text-[var(--muted)]">{project.description}</p>
+          </div>
+        </div>
 
-            {/* Bullet Points */}
-            <div className="border-t border-gray-100  dark:border-gray-700 pt-4">
-                <ul className="space-y-2.5">
-                    {bullets.map((bullet, index) => (
-                        <li key={index} className="flex dark:text-gray-50 items-start gap-3 text-sm text-gray-700 dark:text-gray-400">
-                            <span className="inline-block w-1.5 h-1.5 rounded-full bg-blue-600 mt-2 shrink-0"></span>
-                            <span className="leading-relaxed">{bullet}</span>
-                        </li>
-                    ))}
-                </ul>
+        <span className="pill status-pill">{project.status}</span>
+      </div>
+
+      <div className="mb-6 flex flex-wrap gap-2">
+        {project.tags.map((tag) => (
+          <span key={tag} className="pill">
+            {tag}
+          </span>
+        ))}
+      </div>
+
+      <div className="grid gap-6 lg:grid-cols-[minmax(0,1.15fr)_minmax(280px,0.85fr)]">
+        <div className="space-y-5">
+          <ul className="space-y-3">
+            {project.bullets.map((bullet) => (
+              <li key={bullet} className="flex items-start gap-3 text-sm leading-7 text-[var(--muted)]">
+                <span className="mt-3 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--primary)]" />
+                <span>{bullet}</span>
+              </li>
+            ))}
+          </ul>
+
+          <div className="flex flex-wrap gap-3">
+            {project.links.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="ghost-button"
+              >
+                {link.label}
+                <ArrowUpRight size={15} />
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        <div className="space-y-4">
+          <ArchitectureDiagram nodes={project.architecture} />
+
+          <div className="surface grid gap-4 p-4 text-sm leading-7 text-[var(--muted)]">
+            <div className="space-y-2">
+              <p className="text-[11px] uppercase tracking-[0.3em] text-[var(--primary)]">Data Flow</p>
+              <p>{project.flow}</p>
             </div>
-        </motion.div>
-    );
+            <div className="space-y-2 border-t border-[var(--border)] pt-4">
+              <p className="text-[11px] uppercase tracking-[0.3em] text-[var(--primary)]">Key Tradeoff</p>
+              <p>{project.tradeoff}</p>
+            </div>
+            <div className="space-y-2 border-t border-[var(--border)] pt-4">
+              <p className="text-[11px] uppercase tracking-[0.3em] text-[var(--primary)]">Engineering Proof</p>
+              <div className="flex flex-wrap gap-2">
+                {project.proof.map((item) => (
+                  <span key={item} className="pill">
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+  );
 }
