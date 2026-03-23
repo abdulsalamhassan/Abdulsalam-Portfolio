@@ -28,12 +28,7 @@ export function Hero() {
             <p className="hero-label">{SITE_CONFIG.heroLabel}</p>
             <div className="hero-text-block">
               <h1 className="hero-title">{SITE_CONFIG.name.toUpperCase()}</h1>
-              <p className="hero-tagline muted-text">{SITE_CONFIG.tagline}</p>
-              <p className="hero-identity">
-                <span className="technical-phrase">{SITE_CONFIG.location}</span>
-                {" · "}
-                <span className="muted-text">{SITE_CONFIG.identity}</span>
-              </p>
+              <p className="hero-tagline">{SITE_CONFIG.tagline}</p>
             </div>
           </div>
 
@@ -50,13 +45,12 @@ export function Hero() {
         </div>
 
         <div className="hero-photo-shell">
-          <div className="hero-photo-glow" aria-hidden="true" />
           <div className="hero-photo-frame">
             <Image
               src={SITE_CONFIG.profileImage}
               alt={SITE_CONFIG.name}
               priority
-              width={700}
+              width={640}
               height={860}
               className="hero-photo"
             />

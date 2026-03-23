@@ -1,7 +1,7 @@
 interface SectionProps {
   number: string;
   label: string;
-  title: string;
+  title?: string;
   children: React.ReactNode;
 }
 
@@ -13,9 +13,9 @@ export function Section({ number, label, title, children }: SectionProps) {
           {number}
         </div>
         <div className="section-content">
-          <header className="stack stack-3">
+          <header className={`stack ${title ? "stack-4" : "stack-2"}`}>
             <p className="section-label">{label}</p>
-            <h2 className="section-title">{title}</h2>
+            {title ? <h2 className="section-title">{title}</h2> : null}
           </header>
           {children}
         </div>

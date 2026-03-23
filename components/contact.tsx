@@ -4,19 +4,21 @@ import { SITE_CONFIG } from "@/lib/data";
 
 export function Contact() {
   return (
-    <Section number="05" label="05 - CONTACT" title="Available for global opportunities and engineering conversations.">
+    <Section number="05" label="05 — CONTACT">
       <div id="contact" className="contact-shell stack stack-8">
-        <p className="contact-title">
+        <h2 className="contact-title">
           Available for global opportunities and engineering conversations.
-        </p>
+        </h2>
 
-        <div className="center-row">
+        <div className="contact-links">
           <Link href={SITE_CONFIG.github} target="_blank" rel="noopener noreferrer" className="ghost-button">
             GitHub
           </Link>
+          <span className="contact-separator">·</span>
           <Link href={SITE_CONFIG.linkedin} target="_blank" rel="noopener noreferrer" className="ghost-button">
             LinkedIn
           </Link>
+          <span className="contact-separator">·</span>
           <Link href={`mailto:${SITE_CONFIG.email}`} className="ghost-button">
             Email
           </Link>
