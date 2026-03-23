@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&family=Syne:wght@800&display=swap");
 @import "tailwindcss";
 
 :root {
@@ -10,8 +11,8 @@
   --muted: #5a5a7a;
   --warning: #f59e0b;
   --radius: 4px;
-  --font-display: var(--font-syne), sans-serif;
-  --font-body: var(--font-jetbrains), monospace;
+  --font-display: "Syne", sans-serif;
+  --font-body: "JetBrains Mono", monospace;
   --max-width: 1100px;
 }
 

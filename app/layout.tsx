@@ -1,20 +1,7 @@
 import type { Metadata } from "next";
-import { JetBrains_Mono, Syne } from "next/font/google";
 import "./globals.css";
 import { JsonLd } from "@/components/json-ld";
 import { SITE_CONFIG } from "@/lib/data";
-
-const syne = Syne({
-  subsets: ["latin"],
-  weight: ["800"],
-  variable: "--font-syne",
-});
-
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ["latin"],
-  weight: ["400"],
-  variable: "--font-jetbrains",
-});
 
 const siteUrl = SITE_CONFIG.siteUrl;
 
@@ -70,7 +57,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${syne.variable} ${jetbrainsMono.variable}`}>
+    <html lang="en">
       <body>
         {children}
         <JsonLd />
