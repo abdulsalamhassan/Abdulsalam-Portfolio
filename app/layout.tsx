@@ -1,61 +1,66 @@
 import type { Metadata } from "next";
+import { JetBrains_Mono, Syne } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/components/theme-provider";
 import { JsonLd } from "@/components/json-ld";
+import { SITE_CONFIG } from "@/lib/data";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://abdulsalamh.vercel.app/";
+const syne = Syne({
+  subsets: ["latin"],
+  weight: ["800"],
+  variable: "--font-syne",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  weight: ["400"],
+  variable: "--font-jetbrains",
+});
+
+const siteUrl = SITE_CONFIG.siteUrl;
 
 export const metadata: Metadata = {
-  title: "Abdulsalam Hassan | CS Student & FullStack Developer",
-  description: "Portfolio of Abdulsalam Hassan Shiikhow, a Computer Science student and FullStack Developer focused on Backend Engineering and AI-enabled systems.",
+  title: "Abdulsalam Hassan Shiikhow | Backend & AI Systems Engineer",
+  description: SITE_CONFIG.description,
   metadataBase: new URL(siteUrl),
   keywords: [
-    "Abdulsalam Hassan",
     "Abdulsalam Hassan Shiikhow",
-    "FullStack Developer",
     "Software Engineer",
-    "React Developer",
-    "Next.js Developer",
-    "NestJS Developer",
-    "AI Engineer",
-    "Portfolio",
+    "Backend Engineer",
+    "AI Systems Engineer",
+    "NestJS",
+    "FastAPI",
+    "PostgreSQL",
     "Mogadishu",
-    "Somalia"
+    "Somalia",
+    "Chevening",
   ],
-  authors: [{ name: "Abdulsalam Hassan", url: siteUrl }],
-  creator: "Abdulsalam Hassan",
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
+  authors: [{ name: SITE_CONFIG.name, url: siteUrl }],
+  creator: SITE_CONFIG.name,
   openGraph: {
-    title: "Abdulsalam Hassan | CS Student & FullStack Developer",
-    description: "Portfolio of Abdulsalam Hassan Shiikhow, a Computer Science student and FullStack Developer focused on Backend Engineering and AI-enabled systems.",
+    title: "Abdulsalam Hassan Shiikhow | Backend & AI Systems Engineer",
+    description: SITE_CONFIG.description,
     url: siteUrl,
-    siteName: "Abdulsalam Hassan Portfolio",
+    siteName: `${SITE_CONFIG.name} Portfolio`,
     locale: "en_US",
     type: "website",
     images: [
       {
-        url: "/profile.jpg", // Ideally a specific OG image (1200x630)
+        url: "/profile.jpg",
         width: 800,
         height: 800,
-        alt: "Abdulsalam Hassan Profile",
+        alt: `${SITE_CONFIG.name} profile image`,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Abdulsalam Hassan | CS Student & FullStack Developer",
-    description: "Portfolio of Abdulsalam Hassan Shiikhow, a Computer Science student and FullStack Developer focused on Backend Engineering and AI-enabled systems.",
+    title: "Abdulsalam Hassan Shiikhow | Backend & AI Systems Engineer",
+    description: SITE_CONFIG.description,
     images: ["/profile.jpg"],
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 
@@ -65,21 +70,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body
-        className="antialiased bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 min-h-screen flex flex-col items-center transition-colors duration-200"
-      >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange={false}
-        >
-          <main className="w-full max-w-2xl px-6 py-12 md:py-20">
-            {children}
-            <JsonLd />
-          </main>
-        </ThemeProvider>
+    <html lang="en" className={`${syne.variable} ${jetbrainsMono.variable}`}>
+      <body>
+        {children}
+        <JsonLd />
       </body>
     </html>
   );
