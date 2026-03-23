@@ -14,7 +14,7 @@ import {
 
 export const SITE_CONFIG = {
     name: "Abdulsalam Hassan Shiikhow",
-    title: "Full-Stack Software Engineer | Scalable Web & AI Systems",
+    title: "Software Engineer — Backend & AI Systems",
     description: "I am a Full-Stack Software Engineer focused on building scalable, production-ready web applications and AI-enabled systems. I prioritize strong fundamentals, clean architecture, and maintainable code.",
     email: "abdulsalam.shiikhow@gmail.com",
     github: "https://github.com/abdulsalamhassan",
