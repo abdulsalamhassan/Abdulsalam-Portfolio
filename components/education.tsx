@@ -1,23 +1,35 @@
 import { Section } from "@/components/section";
 import { EDUCATION } from "@/lib/data";
 
+const META = [
+  { label: "Current Level", value: EDUCATION.level },
+  { label: "GPA", value: EDUCATION.gpa },
+  { label: "Expected", value: EDUCATION.expected },
+];
+
 export function Education() {
   return (
-    <Section number="04" label="04 - EDUCATION" title="Formal foundations, sharpened by applied building.">
-      <div className="stack stack-8">
-        <div className="surface timeline-line">
-          <div className="stack stack-3">
-            <h3 className="education-title">{EDUCATION.university}</h3>
-            <p className="education-degree">{EDUCATION.degree}</p>
-            <p className="education-copy">{EDUCATION.expected}</p>
-            <p className="education-copy">{EDUCATION.relevant}</p>
+    <Section id="education" eyebrow="Education" title="Formal foundations, sharpened by applied building.">
+      <div className="edu-grid">
+        <div className="edu-main-card">
+          <h3 className="edu-degree">{EDUCATION.degree}</h3>
+          <p className="edu-uni">{EDUCATION.university}</p>
+          <p className="edu-date">{EDUCATION.period}</p>
+
+          <div className="edu-meta-grid">
+            {META.map((item) => (
+              <div key={item.label} className="edu-meta-item">
+                <p className="edu-rel-label">{item.label}</p>
+                <p className="edu-rel-text">{item.value}</p>
+              </div>
+            ))}
           </div>
         </div>
 
-        <div className="education-grid">
-          {EDUCATION.courses.map((course) => (
-            <div key={course} className="surface education-card">
-              <p className="education-copy">{course}</p>
+        <div className="edu-courses">
+          {EDUCATION.certifications.map((certification) => (
+            <div key={certification} className="edu-course-card">
+              {certification}
             </div>
           ))}
         </div>

@@ -1,93 +1,67 @@
 export const SITE_CONFIG = {
   name: "Abdulsalam Hassan Shiikhow",
-  role: "Software Engineer — Backend & AI Systems",
-  heroLabel: "SOFTWARE ENGINEER — BACKEND & AI",
-  tagline: "Building production-grade AI systems from Mogadishu.",
+  role: "AI Product Engineer | LLM, RAG & Backend Systems",
+  roleShort: "AI Product Engineer",
+  roleSubline: "LLM · RAG · Backend Systems",
+  heroLabel: "AI PRODUCT ENGINEER",
+  tagline: "I build reliable AI and backend systems for universities, healthcare, and enterprise operations.",
   location: "Mogadishu, Somalia",
-  identity: "CS student building production-grade AI systems for real African problems.",
+
+  identity: "AI Product Engineer building production LLM, RAG, backend, and enterprise systems.",
+
   description:
-    "Portfolio of Abdulsalam Hassan Shiikhow, a software engineer focused on backend engineering, AI systems, and production-grade applications rooted in real African problems.",
+    "Portfolio of Abdulsalam Hassan Shiikhow, an AI Software Engineer and AI Product Engineer building production-oriented LLM applications, RAG systems, backend platforms, and institutional software.",
+
   email: "abdulsalam.shiikhow@gmail.com",
   github: "https://github.com/abdulsalamhassan",
   linkedin: "https://www.linkedin.com/in/abdulsalamhassan11/",
+
   profileImage: "/profile.jpg",
-  interviewVideo: "https://www.facebook.com/share/v/17ETcRR4kY/",
+
+  universityStory: "https://simad.edu.so/posts/simad-university-abdulsalam-hassan-success-story",
+  interviewVideo: "https://www.facebook.com/reel/842931364840192",
+
   siteUrl: process.env.NEXT_PUBLIC_SITE_URL ?? "https://abdulsalamh.vercel.app/",
 };
 
-export const HERO_BADGES = [
-  "NestJS",
-  "FastAPI",
-  "PostgreSQL",
-  "Prisma",
-  "Redis",
-  "Docker",
-  "Next.js",
-  "TypeScript",
-  "OpenAI API",
-  "RAG Systems",
-  "GitHub Actions",
-  "Nginx",
+export const PROFILE_FACTS = {
+  focus: "LLM applications, RAG & backend systems",
+  base: "Mogadishu, Somalia",
+  current: "AI Product Engineer — SIMAD AI Institute",
+};
+
+export const HERO_METRICS = [
+  { value: "8,000+", label: "Patient records", note: "Production healthcare" },
+  { value: "700+", label: "University staff", note: "Workforce platform" },
+  { value: "~1,100", label: "Exam contexts", note: "AI moderation" },
 ];
 
 export const ABOUT_PARAGRAPHS = [
-  "I am a backend and AI systems engineer specializing in NestJS, FastAPI, and PostgreSQL. I build systems that handle real load, not just demos.",
-  "Based in Mogadishu, I am building AI-powered tools for problems that matter in East Africa — from drought prediction systems to academic infrastructure. My work connects global engineering standards with local impact.",
-  "Currently pursuing a BSc in Computer Science at SIMAD University while targeting global engineering roles and the Chevening scholarship for postgraduate study in the UK.",
+  "I am an AI Product Engineer and Software Engineer focused on building production-oriented AI applications, backend systems, and enterprise platforms. My work spans LLM applications, Retrieval-Augmented Generation (RAG), document intelligence, structured AI workflows, and reliable backend architecture.",
+
+  "At SIMAD AI Institute, I architect and build institutional AI products, including an AI-assisted examination moderation platform and UniMind, a RAG-based learning system. Beyond AI, I have independently engineered production systems including a healthcare platform managing 8,000+ patient records and a workforce platform designed for 700+ university staff.",
+
+  "I am currently pursuing a Bachelor of Computer Science at SIMAD University while continuing to build production software, lead engineering work, and deepen my expertise in AI systems, backend architecture, and reliable intelligent applications.",
 ];
+
+export const HERO_BADGES = ["Python", "FastAPI", "OpenAI", "RAG", "PGVector", "NestJS", "PostgreSQL", "TypeScript", "Docker"];
 
 export const TECH_STACK = [
   {
-    category: "Backend Engineering",
-    skills: [
-      "TypeScript",
-      "NestJS",
-      "Node.js",
-      "FastAPI",
-      "Python",
-      "PostgreSQL",
-      "Prisma",
-      "Redis",
-      "REST",
-      "JWT",
-      "Docker",
-    ],
+    category: "AI Systems",
+    skills: ["Retrieval-Augmented Generation", "LLM Applications", "Embeddings", "Structured Outputs", "Human-in-the-Loop AI"],
   },
   {
-    category: "Frontend Development",
-    skills: [
-      "Next.js",
-      "React",
-      "Tailwind CSS",
-      "React Query",
-      "TypeScript",
-      "SSR/SSG",
-    ],
+    category: "Backend",
+    skills: ["Python", "FastAPI", "NestJS", "PostgreSQL", "Prisma", "REST APIs"],
   },
   {
-    category: "AI & Data",
-    skills: [
-      "RAG Systems",
-      "pgvector",
-      "Embeddings",
-      "LLM APIs",
-      "Claude API",
-      "OpenAI API",
-      "LangFuse",
-      "FastAPI AI",
-    ],
+    category: "Product",
+    skills: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
   },
   {
-    category: "Infrastructure & Tools",
-    skills: [
-      "Docker",
-      "GitHub Actions",
-      "VPS Deployment",
-      "Nginx",
-      "Git",
-      "Postman",
-      "VS Code",
-    ],
+    category: "Infrastructure",
+    skills: ["Docker", "Railway", "Vercel", "Nginx", "GitHub Actions"],
   },
 ];
 
@@ -104,13 +78,19 @@ export type ProjectLink = {
   href: string;
 };
 
+export type ProjectMetric = {
+  value: string;
+  label: string;
+};
+
 export type Project = {
   title: string;
   slug: string;
   description: string;
-  status: "Live" | "In Development" | "Prototype";
+  status: "Production" | "Pilot" | "In Development" | "Prototype" | "Completed";
   featured?: boolean;
   eyebrow?: string;
+  metric?: ProjectMetric;
   tags: string[];
   links: ProjectLink[];
   bullets: string[];
@@ -122,134 +102,207 @@ export type Project = {
 
 export const PROJECTS: Project[] = [
   {
-    title: "DroughtGuard AI",
-    slug: "droughtguard",
+    title: "SIMAD AI Examination Moderation Platform",
+    slug: "simad-ai-exam-moderation",
     description:
-      "Climate-aware drought intelligence system translating environmental signals into usable decisions for East African communities.",
-    status: "Prototype",
+      "AI-assisted academic quality assurance platform that evaluates examination documents against formal moderation criteria while preserving deterministic evidence verification and human committee authority.",
+    status: "Pilot",
     featured: true,
-    eyebrow: "FEATURED PROJECT",
-    tags: [
-      "Next.js",
-      "FastAPI",
-      "PostgreSQL",
-      "Claude API",
-      "Leaflet",
-      "Docker",
-    ],
+    eyebrow: "FLAGSHIP AI SYSTEM",
+    metric: { value: "~1,100", label: "Course/exam contexts" },
+    tags: ["OpenAI", "LLM", "Document AI", "NestJS", "Next.js", "PostgreSQL", "Human-in-the-Loop"],
     links: [],
     bullets: [
-      "Separated forecasting and UI services to isolate LLM latency from map rendering, keeping the interface responsive when analysis is slow.",
-      "Chose PostgreSQL over Firebase to keep query control over regional climate datasets with filtering that would become brittle in a document store.",
-      "Implemented graceful degradation so the system returns cached regional data when the Claude API is unavailable.",
-      "Designed the architecture for unstable connectivity, so weak network conditions do not break the core drought-readout experience.",
+      "Architected and independently developed the system end-to-end for SIMAD University's examination moderation workflow.",
+      "Designed structured AI evaluation using examination documents, course context, formal moderation criteria, and schema-validated LLM outputs.",
+      "Implemented deterministic verification of AI-proposed evidence, provenance tracking, prompt-injection warnings, reliability classification, and fail-closed behavior.",
+      "Preserved human committee authority by separating AI-generated evidence from final PASS / REVISE / REJECT decisions.",
+      "Designed the platform for approximately 1,100 course and examination contexts across university faculties.",
     ],
-    proof: ["Architecture", "Data Flow", "Tradeoff", "Constraint"],
+    proof: ["Architecture", "Data Flow", "Failure Handling", "Scale", "Constraint"],
     architecture: [
-      "User",
-      "Next.js UI",
-      "FastAPI Backend",
-      "Claude API",
-      "PostgreSQL",
-      "Leaflet Map",
+      "Exam Documents",
+      "Extraction",
+      "Course Context",
+      "OpenAI",
+      "Structured Evidence",
+      "Verification Layer",
+      "Committee Review",
     ],
     flow:
-      "Weather and regional inputs move through FastAPI for analysis, persist in PostgreSQL for traceability, then return to the map layer as human-readable drought signals.",
+      "Exam documents and academic context are assembled for LLM evaluation, converted into structured evidence, deterministically verified against source material, then presented to committee members for final academic judgment.",
     tradeoff:
-      "Separated forecasting and interface concerns to keep latency-sensitive UI interactions independent from variable LLM response times.",
+      "The system deliberately treats model output as untrusted evidence rather than allowing the LLM to make academic decisions directly.",
   },
   {
-    title: "UniMind — AI Academic Assistant",
+    title: "UniMind — AI Learning & RAG Platform",
     slug: "unimind",
     description:
-      "AI-powered academic infrastructure turning static course material into structured, chapter-level learning workflows.",
-    status: "In Development",
-    tags: [
-      "NestJS",
-      "FastAPI",
-      "OpenAI API",
-      "PostgreSQL",
-      "Next.js",
-      "Docker",
-    ],
-    links: [{ label: "GitHub", href: "https://github.com/abdulsalamhassan/UniMind" }],
+      "RAG-based learning platform that transforms lecture documents into grounded Q&A, summaries, quizzes, mind maps, and personalized learning resources.",
+    status: "Completed",
+    tags: ["RAG", "FastAPI", "OpenAI", "Gemini", "PGVector", "Embeddings", "NestJS", "PostgreSQL"],
+    links: [],
     bullets: [
-      "Separated NestJS orchestration from FastAPI generation so AI latency does not block academic CRUD and chapter delivery.",
-      "Used chapter-level retrieval instead of whole-document prompting to improve context precision and reduce irrelevant completions.",
-      "Stored course structure and generation history in PostgreSQL to keep lecturer review auditable as content volume grows.",
+      "Co-developed a three-person AI learning platform combining NestJS application services with a dedicated FastAPI AI microservice.",
+      "Implemented token-aware document chunking targeting roughly 400–500 tokens with overlap for more precise retrieval.",
+      "Used OpenAI text-embedding-3-small embeddings with semantic vector retrieval for grounded learning workflows.",
+      "Designed structured RAG responses containing answers, confidence levels, and evidence references.",
+      "Supported OpenAI and Gemini providers across AI workflows including RAG, summaries, quizzes, and learning-content generation.",
     ],
     proof: ["Architecture", "Data Flow", "Tradeoff", "Scale"],
     architecture: [
-      "Student",
-      "Next.js App",
-      "NestJS API",
-      "FastAPI AI",
-      "OpenAI API",
-      "PostgreSQL",
+      "Lecture PDF",
+      "Document Processing",
+      "Token Chunking",
+      "Embeddings",
+      "PGVector",
+      "Semantic Retrieval",
+      "LLM",
     ],
     flow:
-      "Students request a chapter experience through Next.js, NestJS coordinates permissions and content, FastAPI handles AI generation, and PostgreSQL stores chapters plus generation state.",
-    tradeoff:
-      "Chose service separation over a single monolith so AI workloads can evolve independently without destabilizing academic CRUD endpoints.",
+      "Lecture content is extracted, chunked and embedded, retrieved semantically from the vector store, then passed as evidence to the selected LLM for structured grounded generation.",
+    tradeoff: "Separated the AI workload into FastAPI rather than coupling generation logic directly to the NestJS application layer.",
   },
   {
-    title: "Multi-Tenant API Platform",
-    slug: "multi-tenant-api-platform",
+    title: "DAS Health — Healthcare Management Platform",
+    slug: "das-health",
     description:
-      "Organization-scoped API platform for projects and tasks with authentication, validation, observability, and deployment discipline.",
-    status: "Live",
-    tags: ["NestJS", "JWT", "PostgreSQL", "Prisma", "TypeScript", "Docker"],
-    links: [{ label: "GitHub", href: "https://github.com/abdulsalamhassan/Orchard-API" }],
+      "Production healthcare information system supporting patient registration, screening, surgery workflows, follow-ups, and operational healthcare management for DirectAid Somalia.",
+    status: "Production",
+    metric: { value: "8,000+", label: "Patient records" },
+    tags: ["Healthcare", "Next.js", "PostgreSQL", "Production", "Full-Stack"],
+    links: [],
     bullets: [
-      "Enforced tenant context in the service layer so project queries cannot leak data by trusting client-supplied organization identifiers.",
-      "Combined DTO validation with Prisma constraints to reduce contract drift across authenticated endpoints.",
-      "Added structured logging and pagination early so debugging and list performance stay predictable as tenant data expands.",
+      "Independently engineered the platform end-to-end.",
+      "Currently manages 8,000+ patient records in active healthcare operations.",
+      "Designed operational workflows spanning patient registration, screening, surgery/treatment processes, follow-ups, and reporting.",
+      "Built the system around persistent patient histories and operational traceability rather than isolated transactional forms.",
     ],
-    proof: ["Tradeoff", "Constraint", "Failure Handling"],
-    architecture: [
-      "Client",
-      "NestJS API",
-      "JWT Guard",
-      "Prisma",
-      "PostgreSQL",
-    ],
+    proof: ["Architecture", "Scale", "Constraint"],
+    architecture: ["Healthcare Staff", "Application", "Backend Services", "Patient Records", "Operational Workflows", "Database"],
     flow:
-      "Requests enter through authenticated NestJS controllers, tenant context is enforced in the service layer, and Prisma persists organization-scoped records to PostgreSQL.",
-    tradeoff:
-      "Enforced tenant isolation in backend logic rather than UI convention because authorization bugs are infrastructure failures, not presentation issues.",
+      "Healthcare teams manage patients through registration, screening, treatment and follow-up workflows while maintaining a persistent longitudinal record.",
+    tradeoff: "Prioritized operational reliability and longitudinal patient records over feature-heavy UI complexity.",
   },
   {
-    title: "Issue Tracker & Project Management System",
-    slug: "issue-tracker-and-project-management-system",
+    title: "SIMAD Workforce Management Platform",
+    slug: "simad-workforce",
     description:
-      "Full-stack issue tracking system built around modular interfaces, RBAC, and project-state visibility for engineering teams.",
-    status: "Prototype",
-    tags: ["Node.js", "Express.js", "Next.js", "MongoDB", "Tailwind CSS"],
-    links: [{ label: "GitHub", href: "https://github.com/abdulsalamhassan/DevTrack" }],
+      "Institutional workforce platform designed for 700+ university staff across attendance, multi-campus operations, performance management, approvals, and reporting.",
+    status: "Pilot",
+    metric: { value: "700+", label: "University staff" },
+    tags: ["NestJS", "Next.js", "PostgreSQL", "React Native", "Workforce", "Enterprise"],
+    links: [],
     bullets: [
-      "Mapped project actions to RBAC rules in the backend so permissions do not depend on fragile frontend checks.",
-      "Kept the Next.js interface modular so issue workflows could expand without turning the project board into a coupled screen.",
-      "Chose MongoDB during early product shaping to preserve schema flexibility while workflow assumptions were still changing.",
+      "Independently architected and engineered the platform end-to-end.",
+      "Designed for 700+ SIMAD University staff across multiple campuses.",
+      "Built attendance workflows around geofencing, check-in/check-out, campus movement, approvals, and administrative reporting.",
+      "Extended the platform into evidence-based staff performance and institutional workforce workflows.",
     ],
-    proof: ["Tradeoff", "Data Flow", "Constraint"],
-    architecture: ["User", "Next.js UI", "Express API", "RBAC Layer", "MongoDB"],
+    proof: ["Architecture", "Scale", "Constraint"],
+    architecture: ["Staff Mobile App", "API", "Geofence / Attendance", "Workforce Services", "Management Web", "PostgreSQL"],
     flow:
-      "Project updates move from the Next.js interface through Express authorization rules into MongoDB, where issue state and team activity are stored for retrieval.",
-    tradeoff:
-      "Chose MongoDB for schema flexibility during product shaping, accepting looser relational guarantees in exchange for faster workflow iteration.",
+      "Staff interact through the mobile application while workforce events flow into the backend and management portal for approvals, oversight, and reporting.",
+    tradeoff: "Separated staff interaction from management workflows to keep mobile usage simple while preserving stronger administrative controls.",
+  },
+  {
+    title: "Dersify — AI-Native Personalized Learning",
+    slug: "dersify",
+    description:
+      "AI-native education product designed around persistent learner modeling, diagnostic learning paths, retrieval practice, spaced repetition, and adaptive AI feedback.",
+    status: "In Development",
+    tags: ["AI", "Personalized Learning", "NestJS", "Next.js", "PostgreSQL", "PGVector", "Anthropic", "OpenAI"],
+    links: [],
+    bullets: [
+      "Designed the product around a persistent learner model rather than one-off AI tutoring interactions.",
+      "Combined diagnostic learning maps, retrieval practice, spaced repetition, and error-driven adaptation into the product architecture.",
+      "Designed a NestJS / Next.js / PostgreSQL architecture with AI provider abstraction, queues, vector search, and asynchronous learning workflows.",
+      "Structured the platform for long-term learner state and adaptive learning rather than stateless prompt-response sessions.",
+    ],
+    proof: ["Architecture", "Tradeoff", "Scale"],
+    architecture: ["Learner", "Diagnostic Model", "Learning Map", "AI Engine", "Learner State", "Spaced Repetition", "Adaptive Feedback"],
+    flow: "Learner performance updates a persistent learner model, which drives future content selection, retrieval practice, scheduling, and AI feedback.",
+    tradeoff: "Chose persistent learner modeling over generic chatbot tutoring because personalization requires longitudinal state.",
+  },
+];
+
+export type ExperienceEntry = {
+  role: string;
+  company: string;
+  period?: string;
+  location?: string;
+  bullets: string[];
+};
+
+export const EXPERIENCE: ExperienceEntry[] = [
+  {
+    role: "AI Product Engineer",
+    company: "SIMAD AI Institute",
+    period: "May 2026 — Present",
+    location: "Mogadishu, Somalia",
+    bullets: [
+      "Architect and develop institutional AI products from problem discovery and system design through implementation and stakeholder delivery.",
+      "Independently developed SIMAD's AI-assisted Examination Moderation Platform, combining document intelligence, structured LLM evaluation, deterministic evidence verification, and human committee review.",
+      "Co-developed UniMind, a RAG-based learning platform using FastAPI, embeddings, semantic retrieval, PGVector, OpenAI, and Gemini.",
+      "Independently engineered a workforce platform designed for 700+ university staff across attendance, performance, approvals, and reporting.",
+    ],
+  },
+  {
+    role: "Lead Engineer",
+    company: "ACCO Ltd",
+    period: "June 2026 — Present",
+    location: "Mogadishu, Somalia",
+    bullets: [
+      "Lead engineering team developing an enterprise construction ERP.",
+      "Own architecture and key technical decisions across NestJS, Next.js, PostgreSQL, Prisma, RBAC, workflows, and auditability.",
+      "Translate construction operations into software workflows spanning contracts, BOQ, procurement, inventory, progress certification, IPC, and finance.",
+    ],
+  },
+  {
+    role: "Full Stack Developer",
+    company: "DevLink",
+    period: "November 2025 — August 2026",
+    location: "Remote",
+    bullets: [
+      "Contributed to full-stack web application development across frontend, backend, APIs, and data integration.",
+      "Worked in a remote engineering environment using modern JavaScript and TypeScript technologies.",
+    ],
+  },
+];
+
+export type RecognitionEntry = {
+  title: string;
+  source: string;
+  description: string;
+  ctaLabel: string;
+  href: string;
+};
+
+export const RECOGNITION: RecognitionEntry[] = [
+  {
+    title: "From First-Year Student to Full-Stack Developer",
+    source: "SIMAD University × SIMAD NextGen",
+    description:
+      "Featured by SIMAD University after progressing into professional Full-Stack Development while still in my first year of Computer Science. The university highlighted the journey as an example of disciplined self-learning, persistence, and making full use of university opportunities.",
+    ctaLabel: "Watch University Interview",
+    href: "https://www.facebook.com/reel/842931364840192",
+  },
+  {
+    title: "From Self-Taught Developer to AI Product Engineer",
+    source: "SIMAD University",
+    description:
+      "Featured again by SIMAD University during my second year after progressing from Full-Stack Development into AI Product Engineering and applying software and AI skills to real institutional systems.",
+    ctaLabel: "Read Success Story",
+    href: "https://simad.edu.so/posts/simad-university-abdulsalam-hassan-success-story",
   },
 ];
 
 export const EDUCATION = {
-  degree: "BSc Computer Science",
+  degree: "Bachelor of Computer Science",
   university: "SIMAD University",
-  expected: "Expected: 2028",
-  relevant:
-    "Relevant: Data Structures, Algorithms, Operating Systems, Database Systems",
-  courses: [
-    "Full-Stack Development — Coursera",
-    "Backend Development with NestJS — Udemy",
-    "SQL & PostgreSQL Fundamentals — Udemy",
-    "Generative AI for Software Development — Coursera",
-  ],
+  period: "2024 — 2028",
+  expected: "2028",
+  gpa: "3.67 / 4.00",
+  level: "Year 3",
+  certifications: ["AI Engineering Specialization", "Full-Stack Development Specialization — Coursera"],
 };

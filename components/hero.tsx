@@ -1,70 +1,57 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Github, Mail } from "lucide-react";
-import { HERO_BADGES, SITE_CONFIG } from "@/lib/data";
+import { HERO_METRICS, PROFILE_FACTS, SITE_CONFIG } from "@/lib/data";
 
 export function Hero() {
-  const badgeRail = [...HERO_BADGES, ...HERO_BADGES];
-
   return (
-    <section className="hero">
-      <div className="hero-topbar">
-        <Link
-          href={SITE_CONFIG.github}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="pill pill-icon"
-        >
-          <Github size={14} />
-          GitHub
-        </Link>
-      </div>
+    <section id="home" className="hero-section">
+      <div className="hero-inner">
+        <div className="hero-left">
+          <p className="hero-eyebrow">{SITE_CONFIG.heroLabel}</p>
+          <h1 className="hero-name">{SITE_CONFIG.name}</h1>
+          <p className="hero-tagline">{SITE_CONFIG.tagline}</p>
+          <p className="hero-current-role">{PROFILE_FACTS.current}</p>
 
-      <div className="hero-grid">
-        <div className="hero-copy">
-          <div className="hero-intro">
-            <p className="hero-label">{SITE_CONFIG.heroLabel}</p>
-            <div className="hero-text-block">
-              <h1 className="hero-title">{SITE_CONFIG.name.toUpperCase()}</h1>
-              <p className="hero-tagline">{SITE_CONFIG.tagline}</p>
-            </div>
+          <div className="hero-status">
+            <span className="hero-status-dot" aria-hidden="true" />
+            Available for new opportunities
           </div>
 
           <div className="hero-actions">
-            <Link href="#work" className="ghost-button primary">
-              View My Work
-              <ArrowRight size={15} />
+            <Link href="#work" className="hero-cta">
+              View Selected Work
+              <span className="hero-cta-arrow" aria-hidden="true">
+                ↗
+              </span>
             </Link>
-            <Link href="#contact" className="ghost-button">
-              Get In Touch
-              <Mail size={15} />
+            <Link href={SITE_CONFIG.github} target="_blank" rel="noopener noreferrer" className="hero-cta-secondary">
+              GitHub
             </Link>
+          </div>
+
+          <div className="hero-rule" />
+
+          <div className="hero-metrics">
+            {HERO_METRICS.map((metric) => (
+              <div key={metric.label} className="hero-metric">
+                <span className="hero-metric-value">{metric.value}</span>
+                <span className="hero-metric-label">{metric.label}</span>
+                <span className="hero-metric-note">{metric.note}</span>
+              </div>
+            ))}
           </div>
         </div>
 
-        <div className="hero-photo-shell">
-          <div className="hero-photo-frame">
-            <Image
-              src={SITE_CONFIG.profileImage}
-              alt={SITE_CONFIG.name}
-              priority
-              width={640}
-              height={860}
-              className="hero-photo"
-            />
+        <div className="hero-right">
+          <div className="hero-photo-wrap">
+            <Image src={SITE_CONFIG.profileImage} alt={SITE_CONFIG.name} priority width={640} height={860} />
           </div>
-        </div>
-      </div>
-
-      <div className="marquee">
-        <div className="marquee-track">
-          {badgeRail.map((badge, index) => (
-            <div key={`${badge}-${index}`} className="pill marquee-pill">
-              {badge}
+          <div className="hero-stat-card">
+            <div className="stat-info">
+              <span className="stat-num">{PROFILE_FACTS.current.split(" — ")[0]}</span>
+              <span className="stat-sub">{PROFILE_FACTS.current.split(" — ")[1]}</span>
             </div>
-          ))}
+          </div>
         </div>
       </div>
     </section>

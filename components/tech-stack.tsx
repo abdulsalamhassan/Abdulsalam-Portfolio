@@ -3,14 +3,14 @@ import { TECH_STACK } from "@/lib/data";
 
 export function TechStack() {
   return (
-    <Section number="02" label="02 - STACK" title="Production tools, chosen for systems work.">
-      <div className="stack-grid">
-        {TECH_STACK.map((item) => (
-          <article key={item.category} className="surface stack-card">
-            <p className="stack-card-title">{item.category}</p>
-            <div className="tag-row">
-              {item.skills.map((skill) => (
-                <span key={skill} className="pill">
+    <Section id="stack" eyebrow="AI & Engineering" title="Engineering stack for production AI systems.">
+      <div className="skills-grid">
+        {TECH_STACK.map((group) => (
+          <article key={group.category} className="skill-card">
+            <p className="skill-card-cat">{group.category}</p>
+            <div className="skill-pills">
+              {group.skills.map((skill) => (
+                <span key={skill} className="skill-pill">
                   {skill}
                 </span>
               ))}

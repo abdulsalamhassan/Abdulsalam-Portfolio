@@ -7,18 +7,13 @@ export function FeaturedProjects() {
   const standardProjects = PROJECTS.filter((project) => !project.featured);
 
   return (
-    <Section number="03" label="03 — WORK" title="Systems work with clear engineering decisions.">
-      <div id="work" className="projects-shell">
+    <Section id="work" eyebrow="Selected Work" title="Production systems built for real institutions.">
+      <div className="projects-stack">
         {featuredProject ? <ProjectCard project={featuredProject} /> : null}
 
-        <div className="project-grid">
-          {standardProjects.map((project, index) => (
-            <ProjectCard
-              key={project.slug}
-              project={project}
-              compact
-              lastHalf={standardProjects.length % 2 === 1 && index === standardProjects.length - 1}
-            />
+        <div className="projects-duo">
+          {standardProjects.map((project) => (
+            <ProjectCard key={project.slug} project={project} />
           ))}
         </div>
       </div>

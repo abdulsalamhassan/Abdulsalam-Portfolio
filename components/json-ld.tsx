@@ -20,13 +20,14 @@ export function JsonLd() {
       addressCountry: "Somalia",
     },
     knowsAbout: [
+      "LLM Applications",
+      "Retrieval-Augmented Generation",
+      "AI Product Engineering",
       "Backend Engineering",
-      "AI Systems",
       "NestJS",
       "FastAPI",
       "PostgreSQL",
       "Next.js",
-      "RAG Systems",
     ],
   };
 
